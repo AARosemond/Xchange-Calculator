@@ -6,13 +6,35 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
 
 export default {
   name: 'CurrencyConverter',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      results: null,
+      errors: [],
+      phrase: "",
+      rhyme: ""
+    };
+  }, 
+  methods: {
+    findWords: function() {
+      axios
+        .get("https://api.exchangeratesapi.io/latest HTTP/1.1", {
+          params: {
+            ml: this.phrase,
+            rel_rhy: this.rhyme
+          }
+        })
+        .then(response => {
+          this.results = response.data;
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
+    }
   }
-}
+
+};
 </script>

@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{"8e22":function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement;t._self._c;return t._m(0)},l=[function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"Calculator"},[n("h1",[t._v("This is the calculator")])])}],c=n("2877"),s={},r=Object(c["a"])(s,a,l,!1,null,null,null);e["default"]=r.exports}}]);
-//# sourceMappingURL=about.23dabbac.js.map
+//# sourceMappingURL=about.8a0f6626.js.map
