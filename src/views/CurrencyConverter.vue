@@ -1,116 +1,117 @@
 <template>
-  <div class="CurrencyConverter">
-    <img alt="CurrencyConverter logo" src="../assets/CurrencyConverterLogo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="CurrencyConverter">
+      <img alt="CurrencyConverter logo" src="../assets/CurrencyConverterLogo.png" />
+      <h1>Convert into the currency you need!</h1>
+    </div>
+    <div class="form">
+      <div class="form-container">
+        <p>Sign up to access our special, secret page. Just create an account and answer a brief survey.</p>
+        <p class="error" v-show="showError">type in c</p>
+        <form v-on:submit.prevent="getRates">
+          <p>
+            <label for="base">
+              Base Currency
+              <input type="text" id="base" v-model="base" />
+            </label>
+          </p>
+          <p>
+            <label for="destinationCurrency">
+              Destination Currency
+              <input
+                type="text"
+                id="destinationCurrency"
+                v-model="destinationCurrency"
+              />
+            </label>
+          </p>
+
+          <p>
+            <input type="submit" value="Submit" />
+          </p>
+        </form>
+      </div>
+      <div v-if="results">1 {{this.base}} = {{this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
+
+      <div class="success-message" v-show="!showForm">
+        <h1>Thank you for signing up!</h1>
+        <p>Please take our new member survey. Click here</p>
+        <!-- TODO: Link "Click here" to the survey page. -->
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 
 export default {
-  name: 'CurrencyConverter',
+  name: "CurrencyConverter",
   data() {
     return {
       results: null,
       errors: [],
-      phrase: "",
-      rhyme: ""
+      base: "",
+      destinationCurrency: ""
     };
-  }, 
+  },
   methods: {
-    findWords: function() {
+    getRates: function() {
       axios
-		.get("https://api.exchangeratesapi.io/latest HTTP/1.1", {
+        .get("https://api.exchangeratesapi.io/latest", {
           params: {
-            ml: this.phrase,
-            rel_rhy: this.rhyme
+            base: this.base
           }
         })
         .then(response => {
           this.results = response.data;
+          console.log(this.results);
         })
         .catch(error => {
           this.errors.push(error);
         });
     }
   }
-
 };
 </script>
 
 
 <style scoped>
-.CurrencyConverter
-body, html {
-	background: #ECEDEF;
-	margin: 0;
-	padding: 0;
+.CurrencyConverter body,
+html {
+  background: #ecedef;
+  margin: 0;
+  padding: 0;
 }
- 
-.container {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #fff;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
-	border-radius: 14px;
-	padding-bottom: 20px;
-	width: 320px;
-	
+
+.containor {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  padding-bottom: 20px;
+  width: 320px;
 }
 .display {
-	width: 100%;
-	height: 60px;
-	padding: 40px 0;
-	background: #FF0509;
-	border-top-left-radius: 14px;
-	border-top-right-radius: 14px;
+  width: 100%;
+  height: 60px;
+  padding: 40px 0;
+  background: #ff0509;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 }
 .buttons {
-	padding: 20px 20px 0 20px;
+  padding: 20px 20px 0 20px;
 }
 .row {
-	width: 280px;
-	float: left;
+  width: 280px;
+  float: left;
 }
-input[type=button] {
-	width: 60px;
-	height: 60px;
-	float: left;
-	padding: 0;
-	margin: 5px;
-	box-sizing: border-box;
-	background: #ecedef;
-	border: none;
-	font-size: 30px;
-	line-height: 30px;
-	border-radius: 50%;
-	font-weight: 700;
-	color: #5E5858;
-	cursor: pointer;
-	
-}
-input[type=text] {
-	width: 270px;
-	height: 60px;
-	float: left;
-	padding: 0;
-	box-sizing: border-box;
-	border: none;
-	background: none;
-	color: #ffffff;
-	text-align: right;
-	font-weight: 700;
-	font-size: 60px;
-	line-height: 60px;
-	margin: 0 25px;
-	
-}
+
 .red {
-	background: #FF0509 !important;
-	color: #ffffff !important;
-	
+  background: #ff0509 !important;
+  color: #ffffff !important;
 }
 </style>

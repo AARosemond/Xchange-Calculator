@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Global Abacus</h1>
+    
     <div id="nav">
       <router-link to="/">CurrencyConverter</router-link> |
       <router-link to="/calculator">Calculator</router-link>

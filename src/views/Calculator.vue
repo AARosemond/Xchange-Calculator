@@ -1,9 +1,10 @@
 <template>
+
   <fragment>
-    <div class="container">
-      <img alt="CurrencyConverter logo" src="../assets/CurrencyConverterLogo.png">
+    <img alt="CurrencyConverter logo" src="../assets/CurrencyConverterLogo.png">
       <h1>CurrencyConverter Calculator</h1>
-      <form class="form">
+    <div class="container">      
+      <form class="form-container">
         <div class="display">
           <input type="text" placeholder="0" name="displayResult" />
         </div>
@@ -49,9 +50,9 @@
 </template>
 
 <script>
-function calcNumbers(result) {
+/*function calcNumbers(result) {
   form.displayResult.value = form.displayResult.value + result;
-}
+}*/
 </script>
 
 <style scoped>
@@ -62,8 +63,8 @@ html {
   padding: 0;
 }
 
-.container {
-  position: fixed;
+.contain0r {
+  position: float;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
