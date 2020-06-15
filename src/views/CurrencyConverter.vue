@@ -6,15 +6,21 @@
     </div>
     <div class="form">
       <div class="form-container">
-        <p>Sign up to access our special, secret page. Just create an account and answer a brief survey.</p>
+        
         <p class="error" v-show="showError">type in c</p>
         <form v-on:submit.prevent="getRates">
+          <p>
+            <label for="multiplier">
+              Multiplier (How much of the currency you want converted?)
+              <input type="text" id="multiplier" v-model="multiplier" />
+            </label>
+          </p>
           <p>
             <label for="base">
               Base Currency
               <input type="text" id="base" v-model="base" />
             </label>
-          </p>
+          </p><p>Type in a 3-Letter Currency (USD, EUR, JPY, etc.)</p>
           <p>
             <label for="destinationCurrency">
               Destination Currency
@@ -31,12 +37,10 @@
           </p>
         </form>
       </div>
-      <div v-if="results">1 {{this.base}} = {{this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
+      <div v-if="results">{{this.multiplier}} {{this.base}} = {{this.multiplier*this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
 
       <div class="success-message" v-show="!showForm">
-        <h1>Thank you for signing up!</h1>
-        <p>Please take our new member survey. Click here</p>
-        <!-- TODO: Link "Click here" to the survey page. -->
+        
       </div>
     </div>
   </div>
