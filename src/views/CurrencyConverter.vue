@@ -6,21 +6,22 @@
     </div>
     <div class="form">
       <div class="form-container">
-        
         <p class="error" v-show="showError">type in c</p>
         <form v-on:submit.prevent="getRates">
           <p>
             <label for="multiplier">
-              Multiplier (How much of the currency you want converted?)
+              Multiplier
               <input type="text" id="multiplier" v-model="multiplier" />
             </label>
-          </p>
+          </p>Type in how much of the currency you want converted?
+          <p></p>
           <p>
             <label for="base">
               Base Currency
               <input type="text" id="base" v-model="base" />
             </label>
-          </p><p>Type in a 3-Letter Currency (USD, EUR, JPY, etc.)</p>
+          </p>
+          <p>Type in a 3-Letter Currency (USD, EUR, JPY, etc.)</p>
           <p>
             <label for="destinationCurrency">
               Destination Currency
@@ -37,16 +38,19 @@
           </p>
         </form>
       </div>
-      <div v-if="results">{{this.multiplier}} {{this.base}} = {{this.multiplier*this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
-
-      <div class="success-message" v-show="!showForm">
-        
+      <spinner v-if="showSpinner"></spinner>
+      <div class="results-container">
+        <div
+          v-if="results"
+        >{{this.multiplier}} {{this.base}} = {{this.multiplier*this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+require("vue2-animate/dist/vue2-animate.min.css");
+import CubeSpinner from "@/components/CubeSpinner";
 
 export default {
   name: "CurrencyConverter",
@@ -55,11 +59,17 @@ export default {
       results: null,
       errors: [],
       base: "",
-      destinationCurrency: ""
+      destinationCurrency: "",
+      showSpinner: false
     };
   },
+  components: {
+    spinner: CubeSpinner
+  },
+
   methods: {
     getRates: function() {
+      this.showSpinner = true;
       axios
         .get("https://api.exchangeratesapi.io/latest", {
           params: {
@@ -67,10 +77,12 @@ export default {
           }
         })
         .then(response => {
+          this.showSpinner = false;
           this.results = response.data;
           console.log(this.results);
         })
         .catch(error => {
+          this.showSpinner = false;
           this.errors.push(error);
         });
     }
