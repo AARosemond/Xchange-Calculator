@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CurrencyConverter from '../views/CurrencyConverter.vue'
-import Calculator from '../views/Calculator.vue'
+import XchangeCalculator from '../views/XchangeCalculator.vue'
+import About from '../views/About.vue'
 import { Plugin } from 'vue-fragment';
 Vue.use(Plugin);
 
@@ -10,13 +10,13 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'CurrencyConverter',
-    component: CurrencyConverter
+    name: 'XchangeCalculator',
+    component: XchangeCalculator
   },
   {
-    path: '/Calculator',
-    name: 'Calculator',
-    component: Calculator
+    path: '/about',
+    name: 'About',
+    component: About
     
 
   }
