@@ -2,8 +2,8 @@
   <div id="app">
     
     <div id="nav">
-      <router-link to="/">Xchange-Calculator</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">XchangeCalculator</router-link> |
+      <router-link to="/about">About the App</router-link>
     </div>
     <router-view/>
   </div>

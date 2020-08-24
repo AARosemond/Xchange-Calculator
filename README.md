@@ -1,5 +1,5 @@
 # xchange-calculator
-
+Point of sale convenience. Wherever in the world you may need it.
 ## Project setup
 ```
 npm install
