@@ -28,12 +28,10 @@
 
           <p>
             <label for="multiplier">
-              Multiplier
+              Total
               <input type="text" id="multiplier" v-model="multiplier" />
             </label>
-          </p>Type in how much of the currency you want converted?
-          <p></p>
-          <p></p>
+          </p>
           <div class="container">
             <div class="currency">
               <p>
@@ -45,17 +43,26 @@
                     <option value="JPY" label="Japanese yen">JPY - Japanese yen</option>
                     <option value="GBP" label="Pound sterling">GBP - Pound sterling</option>
                     <option disabled>──────────</option>
-                    <option value="AED" label="United Arab Emirates dirham">AED - United Arab Emirates dirham</option>
+                    <option
+                      value="AED"
+                      label="United Arab Emirates dirham"
+                    >AED - United Arab Emirates dirham</option>
                     <option value="AFN" label="Afghan afghani">AFN - Afghan afghani</option>
                     <option value="ALL" label="Albanian lek">ALL - Albanian lek</option>
                     <option value="AMD" label="Armenian dram">AMD - Armenian dram</option>
-                    <option value="ANG" label="Netherlands Antillean guilder">ANG - Netherlands Antillean guilder</option>
+                    <option
+                      value="ANG"
+                      label="Netherlands Antillean guilder"
+                    >ANG - Netherlands Antillean guilder</option>
                     <option value="AOA" label="Angolan kwanza">AOA - Angolan kwanza</option>
                     <option value="ARS" label="Argentine peso">ARS - Argentine peso</option>
                     <option value="AUD" label="Australian dollar">AUD - Australian dollar</option>
                     <option value="AWG" label="Aruban florin">AWG - Aruban florin</option>
                     <option value="AZN" label="Azerbaijani manat">AZN - Azerbaijani manat</option>
-                    <option value="BAM" label="Bosnia and Herzegovina convertible mark">BAM - Bosnia and Herzegovina convertible mark</option>
+                    <option
+                      value="BAM"
+                      label="Bosnia and Herzegovina convertible mark"
+                    >BAM - Bosnia and Herzegovina convertible mark</option>
                     <option value="BBD" label="Barbadian dollar">BBD - Barbadian dollar</option>
                     <option value="BDT" label="Bangladeshi taka">BDT - Bangladeshi taka</option>
                     <option value="BGN" label="Bulgarian lev">BGN - Bulgarian lev</option>
@@ -177,7 +184,10 @@
                     <option value="SOS" label="Somali shilling">SOS - Somali shilling</option>
                     <option value="SRD" label="Surinamese dollar">SRD - Surinamese dollar</option>
                     <option value="SSP" label="South Sudanese pound">SSP - South Sudanese pound</option>
-                    <option value="STN" label="São Tomé and Príncipe dobra">STN - São Tomé and Príncipe dobra</option>
+                    <option
+                      value="STN"
+                      label="São Tomé and Príncipe dobra"
+                    >STN - São Tomé and Príncipe dobra</option>
                     <option value="SYP" label="Syrian pound">SYP - Syrian pound</option>
                     <option value="SZL" label="Swazi lilangeni">SZL - Swazi lilangeni</option>
                     <option value="THB" label="Thai baht">THB - Thai baht</option>
@@ -186,7 +196,10 @@
                     <option value="TND" label="Tunisian dinar">TND - Tunisian dinar</option>
                     <option value="TOP" label="Tongan paʻanga">TOP - Tongan paʻanga</option>
                     <option value="TRY" label="Turkish lira">TRY - Turkish lira</option>
-                    <option value="TTD" label="Trinidad and Tobago dollar">TTD - Trinidad and Tobago dollar</option>
+                    <option
+                      value="TTD"
+                      label="Trinidad and Tobago dollar"
+                    >TTD - Trinidad and Tobago dollar</option>
                     <option value="TVD" label="Tuvaluan dollar">TVD - Tuvaluan dollar</option>
                     <option value="TWD" label="New Taiwan dollar">TWD - New Taiwan dollar</option>
                     <option value="TZS" label="Tanzanian shilling">TZS - Tanzanian shilling</option>
@@ -195,18 +208,30 @@
                     <option value="USD" label="United States dollar">USD - United States dollar</option>
                     <option value="UYU" label="Uruguayan peso">UYU - Uruguayan peso</option>
                     <option value="UZS" label="Uzbekistani soʻm">UZS - Uzbekistani soʻm</option>
-                    <option value="VES" label="Venezuelan bolívar soberano">VES - Venezuelan bolívar soberano</option>
+                    <option
+                      value="VES"
+                      label="Venezuelan bolívar soberano"
+                    >VES - Venezuelan bolívar soberano</option>
                     <option value="VND" label="Vietnamese đồng">VND - Vietnamese đồng</option>
                     <option value="VUV" label="Vanuatu vatu">VUV - Vanuatu vatu</option>
                     <option value="WST" label="Samoan tālā">WST - Samoan tālā</option>
-                    <option value="XAF" label="Central African CFA franc">XAF - Central African CFA franc</option>
-                    <option value="XCD" label="Eastern Caribbean dollar">XCD - Eastern Caribbean dollar</option>
+                    <option
+                      value="XAF"
+                      label="Central African CFA franc"
+                    >XAF - Central African CFA franc</option>
+                    <option
+                      value="XCD"
+                      label="Eastern Caribbean dollar"
+                    >XCD - Eastern Caribbean dollar</option>
                     <option value="XOF" label="West African CFA franc">XOF - West African CFA franc</option>
                     <option value="XPF" label="CFP franc">XPF - CFP franc</option>
                     <option value="ZAR" label="South African rand">ZAR - South African rand</option>
                     <option value="ZMW" label="Zambian kwacha">ZMW - Zambian kwacha</option>
                     <option value="ZWB" label="Zimbabwean bonds">ZWB - Zimbabwean bonds</option>
                   </select>
+                  <label for="base">
+                    <input type="text" id="base" v-model="base" />
+                  </label>
                 </label>
               </p>
             </div>
@@ -226,17 +251,26 @@
                     <option value="JPY" label="Japanese yen">JPY - Japanese yen</option>
                     <option value="GBP" label="Pound sterling">GBP - Pound sterling</option>
                     <option disabled>──────────</option>
-                    <option value="AED" label="United Arab Emirates dirham">AED - United Arab Emirates dirham</option>
+                    <option
+                      value="AED"
+                      label="United Arab Emirates dirham"
+                    >AED - United Arab Emirates dirham</option>
                     <option value="AFN" label="Afghan afghani">AFN - Afghan afghani</option>
                     <option value="ALL" label="Albanian lek">ALL - Albanian lek</option>
                     <option value="AMD" label="Armenian dram">AMD - Armenian dram</option>
-                    <option value="ANG" label="Netherlands Antillean guilder">ANG - Netherlands Antillean guilder</option>
+                    <option
+                      value="ANG"
+                      label="Netherlands Antillean guilder"
+                    >ANG - Netherlands Antillean guilder</option>
                     <option value="AOA" label="Angolan kwanza">AOA - Angolan kwanza</option>
                     <option value="ARS" label="Argentine peso">ARS - Argentine peso</option>
                     <option value="AUD" label="Australian dollar">AUD - Australian dollar</option>
                     <option value="AWG" label="Aruban florin">AWG - Aruban florin</option>
                     <option value="AZN" label="Azerbaijani manat">AZN - Azerbaijani manat</option>
-                    <option value="BAM" label="Bosnia and Herzegovina convertible mark">BAM - Bosnia and Herzegovina convertible mark</option>
+                    <option
+                      value="BAM"
+                      label="Bosnia and Herzegovina convertible mark"
+                    >BAM - Bosnia and Herzegovina convertible mark</option>
                     <option value="BBD" label="Barbadian dollar">BBD - Barbadian dollar</option>
                     <option value="BDT" label="Bangladeshi taka">BDT - Bangladeshi taka</option>
                     <option value="BGN" label="Bulgarian lev">BGN - Bulgarian lev</option>
@@ -358,7 +392,10 @@
                     <option value="SOS" label="Somali shilling">SOS - Somali shilling</option>
                     <option value="SRD" label="Surinamese dollar">SRD - Surinamese dollar</option>
                     <option value="SSP" label="South Sudanese pound">SSP - South Sudanese pound</option>
-                    <option value="STN" label="São Tomé and Príncipe dobra">STN - São Tomé and Príncipe dobra</option>
+                    <option
+                      value="STN"
+                      label="São Tomé and Príncipe dobra"
+                    >STN - São Tomé and Príncipe dobra</option>
                     <option value="SYP" label="Syrian pound">SYP - Syrian pound</option>
                     <option value="SZL" label="Swazi lilangeni">SZL - Swazi lilangeni</option>
                     <option value="THB" label="Thai baht">THB - Thai baht</option>
@@ -367,7 +404,10 @@
                     <option value="TND" label="Tunisian dinar">TND - Tunisian dinar</option>
                     <option value="TOP" label="Tongan paʻanga">TOP - Tongan paʻanga</option>
                     <option value="TRY" label="Turkish lira">TRY - Turkish lira</option>
-                    <option value="TTD" label="Trinidad and Tobago dollar">TTD - Trinidad and Tobago dollar</option>
+                    <option
+                      value="TTD"
+                      label="Trinidad and Tobago dollar"
+                    >TTD - Trinidad and Tobago dollar</option>
                     <option value="TVD" label="Tuvaluan dollar">TVD - Tuvaluan dollar</option>
                     <option value="TWD" label="New Taiwan dollar">TWD - New Taiwan dollar</option>
                     <option value="TZS" label="Tanzanian shilling">TZS - Tanzanian shilling</option>
@@ -376,41 +416,39 @@
                     <option value="USD" label="United States dollar">USD - United States dollar</option>
                     <option value="UYU" label="Uruguayan peso">UYU - Uruguayan peso</option>
                     <option value="UZS" label="Uzbekistani soʻm">UZS - Uzbekistani soʻm</option>
-                    <option value="VES" label="Venezuelan bolívar soberano">VES - Venezuelan bolívar soberano</option>
+                    <option
+                      value="VES"
+                      label="Venezuelan bolívar soberano"
+                    >VES - Venezuelan bolívar soberano</option>
                     <option value="VND" label="Vietnamese đồng">VND - Vietnamese đồng</option>
                     <option value="VUV" label="Vanuatu vatu">VUV - Vanuatu vatu</option>
                     <option value="WST" label="Samoan tālā">WST - Samoan tālā</option>
-                    <option value="XAF" label="Central African CFA franc">XAF - Central African CFA franc</option>
-                    <option value="XCD" label="Eastern Caribbean dollar">XCD - Eastern Caribbean dollar</option>
+                    <option
+                      value="XAF"
+                      label="Central African CFA franc"
+                    >XAF - Central African CFA franc</option>
+                    <option
+                      value="XCD"
+                      label="Eastern Caribbean dollar"
+                    >XCD - Eastern Caribbean dollar</option>
                     <option value="XOF" label="West African CFA franc">XOF - West African CFA franc</option>
                     <option value="XPF" label="CFP franc">XPF - CFP franc</option>
                     <option value="ZAR" label="South African rand">ZAR - South African rand</option>
                     <option value="ZMW" label="Zambian kwacha">ZMW - Zambian kwacha</option>
                     <option value="ZWB" label="Zimbabwean bonds">ZWB - Zimbabwean bonds</option>
                   </select>
+                  <label for="destinationCurrency">
+                    <input type="text" id="destinationCurrency" v-model="destinationCurrency" />
+                  </label>
                 </label>
               </p>
             </div>
           </div>
-          <p><p>
+          <p></p>
+          <p>
             <label for="multiplier">
               Multiplier
               <input type="text" id="multiplier" v-model="multiplier" />
-            </label>
-            <label for="base">
-              Base Currency
-              <input type="text" id="base" v-model="base" />
-            </label>
-          </p>
-          <p>Type in a 3-Letter Currency (USD, EUR, JPY, etc.)</p>
-          <p>
-            <label for="destinationCurrency">
-              Destination Currency
-              <input
-                type="text"
-                id="destinationCurrency"
-                v-model="destinationCurrency"
-              />
             </label>
           </p>
 
