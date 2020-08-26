@@ -8,29 +8,25 @@
       <div class="form-container">
         <p class="error" v-show="showError">type in c</p>
         <form v-on:submit.prevent="getRates">
-          <div data-ng-app="any" data-ng-init="quantity=1;price=5">
+          <div data-ng-app="any" data-ng-init="quantity=1;price=5;itemTotal=">
             <h2>Item Cost Calculator</h2>
-            <p>
               Item Quantity:
-              <input type="number" ng-model="quantity" />
+              <input type="number" v-on:change="getItemTotal" v-model="quantity" />
               Price:
-              <input type="number" ng-model="price" />
-              <label for="itemTotal">
-                Item Total:
-                <input type="text" id="itemTotal" v-model="itemTotal" />
-              </label>
-            </p>
+              <input type="number" v-on:change="getItemTotal" step="0.01" v-model="price" />
+            
             <div class="itemTotal-container">
-              <div v-if="itemTotal">{{this.quantity * this.price}}</div>
+              <div v-if="itemTotal">Item Total: {{this.itemTotal}}</div>
             </div>
           </div>
           <h2>Cost Currency Converter</h2>
+          <div v-if="total"> Total: {{this.total}}</div>
 
           <p>
-            <label for="multiplier">
-              Total
+            <!-- <label for="multiplier"> -->
+              <!-- Total
               <input type="text" id="multiplier" v-model="multiplier" />
-            </label>
+            </label> -->
           </p>
           <div class="container">
             <div class="currency">
@@ -453,12 +449,11 @@
       <div class="results-container">
         <div
           v-if="results"
-        >{{this.multiplier}} {{this.base}} = {{this.multiplier*this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
+        >{{this.total}} {{this.base}} = {{this.total*this.results.rates[this.destinationCurrency]}} {{this.destinationCurrency}}</div>
       </div>
     </div>
   </div>
 </template>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 import axios from "axios";
 require("vue2-animate/dist/vue2-animate.min.css");
@@ -473,6 +468,8 @@ export default {
       base: "",
       destinationCurrency: "",
       showSpinner: false,
+      itemTotal: null,
+      total: 0,
     };
   },
   components: {
@@ -497,6 +494,10 @@ export default {
           this.showSpinner = false;
           this.errors.push(error);
         });
+    },
+    getItemTotal: function () {
+      this.itemTotal = this.quantity * this.price;
+      this.total = this.itemTotal;
     },
   },
 };
