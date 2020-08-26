@@ -9,6 +9,7 @@ let options = {
 
 Vue.use(VueLocalStorage, options);
 
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,13 +1,24 @@
 <template>
   <div>
-    <div class="CurrencyConverter">
+    <div class="CurrencyConverter"><h1>XchangeCalculator</h1>
       <img alt="CurrencyConverter logo" src="../assets/CurrencyConverterLogo.png" />
-      <h1>Convert into the currency you need!</h1>
-    </div>
+      </div>
     <div class="form">
       <div class="form-container">
         <p class="error" v-show="showError">type in c</p>
         <form v-on:submit.prevent="getRates">
+          <div data-ng-app="any" data-ng-init="quantity=1;price=5">
+            <h2>Item Cost Calculator</h2>
+            <p>Item Quantity:<input type="number" ng-model="quantity" />
+             Price:
+            <input type="number" ng-model="price" />
+            <label for="itemTotal"> Item Total:<input type="text" id="itemTotal" v-model="itemTotal" /></label></p>
+            <div class="itemTotal-container">
+              <div v-if="itemTotal">{{this.quantity*this.price}}</div>
+            </div>
+          </div>
+          <h2>Cost Currency Converter</h2>
+
           <p>
             <label for="multiplier">
               Multiplier
@@ -60,33 +71,33 @@ export default {
       errors: [],
       base: "",
       destinationCurrency: "",
-      showSpinner: false
+      showSpinner: false,
     };
   },
   components: {
-    spinner: CubeSpinner
+    spinner: CubeSpinner,
   },
 
   methods: {
-    getRates: function() {
+    getRates: function () {
       this.showSpinner = true;
       axios
         .get("https://api.exchangeratesapi.io/latest", {
           params: {
-            base: this.base
-          }
+            base: this.base,
+          },
         })
-        .then(response => {
+        .then((response) => {
           this.showSpinner = false;
           this.results = response.data;
           console.log(this.results);
         })
-        .catch(error => {
+        .catch((error) => {
           this.showSpinner = false;
           this.errors.push(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
