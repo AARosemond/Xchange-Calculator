@@ -444,14 +444,6 @@
               </p>
             </div>
           </div>
-          <p></p>
-          <p>
-            <label for="multiplier">
-              Multiplier
-              <input type="text" id="multiplier" v-model="multiplier" />
-            </label>
-          </p>
-
           <p>
             <input type="submit" value="Submit" />
           </p>
