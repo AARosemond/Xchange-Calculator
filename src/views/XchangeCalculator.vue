@@ -21,7 +21,7 @@
                 v-model="item.price"
               />
               Item Total: {{item.quantity*item.price}}
-              <button @click="addItem">Add Item</button>
+              <button v-if="index + 1 === items.length" @click="addItem">Add Item</button>
             </div>
 
             <div class="itemTotal-container">
