@@ -6,27 +6,36 @@
     </div>
     <div class="form">
       <div class="form-container">
-        <p class="error" v-show="showError">type in c</p>
+        <p class="error" v-show="showError">Error. Let's try again.</p>
         <form v-on:submit.prevent="getRates">
-          <div data-ng-app="any" data-ng-init="quantity=1;price=5;itemTotal=">
+          <div>
             <h2>Item Cost Calculator</h2>
+            <div v-for="(item, index) in items" :key="index">
               Item Quantity:
-              <input type="number" v-on:change="getItemTotal" v-model="quantity" />
+              <input type="number" v-on:change="getItemTotal" v-model="item.quantity" />
               Price:
-              <input type="number" v-on:change="getItemTotal" step="0.01" v-model="price" />
-            
+              <input
+                type="number"
+                v-on:change="getItemTotal"
+                step="0.01"
+                v-model="item.price"
+              />
+              Item Total: {{item.quantity*item.price}}
+              <button @click="addItem">Add Item</button>
+            </div>
+
             <div class="itemTotal-container">
               <div v-if="itemTotal">Item Total: {{this.itemTotal}}</div>
             </div>
           </div>
           <h2>Cost Currency Converter</h2>
-          <div v-if="total"> Total: {{this.total}}</div>
+          <div v-if="total">Total: {{this.total}}</div>
 
           <p>
             <!-- <label for="multiplier"> -->
-              <!-- Total
+            <!-- Total
               <input type="text" id="multiplier" v-model="multiplier" />
-            </label> -->
+            </label>-->
           </p>
           <div class="container">
             <div class="currency">
@@ -470,6 +479,7 @@ export default {
       showSpinner: false,
       itemTotal: null,
       total: 0,
+      items: [{ quantity: "", price: "" }],
     };
   },
   components: {
@@ -496,9 +506,14 @@ export default {
         });
     },
     getItemTotal: function () {
-      this.itemTotal = this.quantity * this.price;
-      this.total = this.itemTotal;
+      this.total=0;
+      for (let i = 0; i < this.items.length; i++) {
+        this.total = this.total + this.items[i].quantity * this.items[i].price;
+      }
     },
+    addItem: function () {
+      this.items.push({quantity:"",price:""});
+    }
   },
 };
 </script>
